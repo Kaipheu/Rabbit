@@ -9,6 +9,12 @@ public class Entrer : MonoBehaviour {
 	// Use this for initialization
 	void OnTriggerEnter2D(Collider2D other){
 		Debug.Log ("Entrer !");
+		int Rnd;
+		float RndT = Random.value*10;
+		Rnd = (int) RndT;
+		Debug.Log (Rnd);
+		if(Rnd % 2 == 1){
 		Instantiate (Enigme);
+		}
 	}
 }
