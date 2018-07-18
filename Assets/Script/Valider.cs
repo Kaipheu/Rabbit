@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Valider : MonoBehaviour {
-	bool Clique = false;
-	Vector3 PosInit;
+	bool Clique = false;// Si vrai il y a déplacement
+	Vector3 PosInit; // position initiale de l'objet
+	RectTransform  Rect;
+
+
+	 void Start(){
+		Rect = gameObject.GetComponent<RectTransform> ();
+
+	}
+
 	void Update(){
 		if (Clique){
-			RectTransform  Rect = gameObject.GetComponent<RectTransform>();
-			Rect.anchoredPosition = Input.mousePosition - PosInit;
+			Rect.anchoredPosition = Input.mousePosition - PosInit; // Changement des position de l'objet.
 			Debug.Log ("Clique deplace"+Rect.anchoredPosition);
 		}
 	
 	}
-	// Update is called once per frame
-	public void Clicpibk () {
+	public void Clicpibk () { // Fontion appeler lorsque l'on appuie sur l'objet
 		Clique = !Clique;
 		Debug.Log ("Clique");
-		RectTransform  Rect = gameObject.GetComponent<RectTransform>();
 		Vector3 Tmp = Rect.anchoredPosition;
 		PosInit = Input.mousePosition - Tmp;
 	}	
+	public void Valdation(){// Fonction apeller quant ont appui sur le bouton Valider
+		// 
+
+	}
 }
