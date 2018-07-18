@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Valider : MonoBehaviour {
 	bool Clique = false;
-	// Use this for 
+	Vector3 PosInit;
 	void Update(){
 		if (Clique){
-			var screenPoint = Vector3(Input.mousePosition);
-			screenPoint.z = 10.0f; //distance of the plane from the camera
-			transform.position = Camera.main.ScreenToWorldPoint(screenPoint);
-
 			RectTransform  Rect = gameObject.GetComponent<RectTransform>();
-
-			Rect.anchoredPosition = Input.mousePosition -new Vector3 (-60,0,0);
+			Rect.anchoredPosition = Input.mousePosition - PosInit;
 			Debug.Log ("Clique deplace"+Rect.anchoredPosition);
 		}
 	
@@ -22,5 +17,8 @@ public class Valider : MonoBehaviour {
 	public void Clicpibk () {
 		Clique = !Clique;
 		Debug.Log ("Clique");
+		RectTransform  Rect = gameObject.GetComponent<RectTransform>();
+		Vector3 Tmp = Rect.anchoredPosition;
+		PosInit = Input.mousePosition - Tmp;
 	}	
 }
