@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Enigme.unity
+- path: Assets/Scene/E3.unity
   isLoaded: 1
   isActive: 1
